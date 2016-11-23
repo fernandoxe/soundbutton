@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>soundbutton</title>
+    <meta name="description" content="soundbutton description">
+    
+    <link rel="manifest" href="/manifest.json">
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/iron-icons/image-icons.html">
+  </head>
+  <body>
+    <style is="custom-style">
+      .flex-center-justified {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-justified);
+      }
+      .flex-center-align {
+        @apply(--layout-horizontal);
+        @apply(--layout-center);
+      }
+    </style>
+    <style>
+      body{
+        margin: 0;
+      }
+      .container{
+        width: 100%;
+        height: 100vh;
+        background-color: #2196F3;
+      }
+      .button{
+        width: 70vmin;
+        height: 70vmin;
+        background-color: #EC407A;
+        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4);
+      }
+      .audio{
+        display: none;
+      }
+      .iron-icon-0{
+        width: 40vmin;
+        height: 40vmin;
+      }
+    </style>
+    <div class="container flex-center-justified flex-center-align">
+      <paper-fab class="button" onclick="playSound()" icon="image:music-note"></paper-fab>
+    </div>
+    <div class="audio">
+      <audio id="sound">
+        <source src="sound/sound.mp3"></source>
+      </audio>
+    </div>
+    <script>
+        var sound = document.querySelector('#sound');
+        function playSound(){
+          sound.play();
+        }
+    </script>
+  </body>
+</html>

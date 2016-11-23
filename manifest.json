@@ -1,0 +1,7 @@
+{
+  "name": "soundbutton",
+  "short_name": "soundbutton",
+  "description": "Sound player button",
+  "start_url": "/",
+  "display": "standalone"
+}
