@@ -2,12 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
 
     <title>soundbutton</title>
     <meta name="description" content="soundbutton description">
     
     <link rel="manifest" href="/manifest.json">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16">
+    <meta name="theme-color" content="#ffffff">
 
     <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
@@ -35,11 +41,11 @@
         height: 100vh;
         background-color: #2196F3;
       }
-      .button{
+      .paper-fab-0.button{
         width: 70vmin;
         height: 70vmin;
         background-color: #EC407A;
-        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
       }
       .audio{
         display: none;
@@ -60,7 +66,13 @@
     <script>
         var sound = document.querySelector('#sound');
         function playSound(){
+          vibrate(500);
           sound.play();
+        }
+        function vibrate(ms){
+          if(navigator.vibrate){
+            navigator.vibrate(500);
+          }
         }
     </script>
   </body>
