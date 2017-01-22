@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#2196F3">
 
     <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
@@ -22,6 +22,18 @@
     <link rel="import" href="bower_components/iron-icons/image-icons.html">
   </head>
   <body>
+    <platinum-sw-register
+      auto-register
+      skip-waiting
+      clients-claim
+      reload-on-install
+      href="sw-import.js">
+      <platinum-sw-cache
+        default-cache-strategy="cacheFirst"
+        precache="['/sound/sound.mp3']">
+      </platinum-sw-cache>
+    </platinum-sw-register>
+      
     <style is="custom-style">
       .flex-center-justified {
         @apply(--layout-horizontal);
@@ -70,7 +82,7 @@
           sound.play();
         }
         function vibrate(ms){
-          if(navigator.vibrate){
+          if('vibrate' in navigator){
             navigator.vibrate(500);
           }
         }
